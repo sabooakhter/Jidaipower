@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIDAiPower - Towable Generator Rentals</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Include EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Placeholder for EmailJS Public Key - Replace with your actual key
+        (function() {
+            emailjs.init({
+              publicKey: "YOUR_PUBLIC_KEY", // Replace with your EmailJS Public Key
+            });
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">JIDAiPower</div>
+            <nav>
+                <ul>
+                    <li><a href="#generators">Generators</a></li>
+                    <li><a href="#quote">Request Quote</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Reliable Towable Power Solutions</h1>
+            <p>Your trusted source for towable generator rentals in the Lanham area.</p>
+            <a href="#quote" class="cta-button">Get a Quote Now</a>
+        </div>
+    </section>
+
+    <section id="generators" class="generators">
+        <div class="container">
+            <h2>Our Generator Fleet</h2>
+            <div class="generator-grid">
+                <!-- Generator Items with Provided Details -->
+                <div class="generator-item">
+                    <img src="https://rsequipment.com/wp-content/uploads/2019/03/Multiquip-Generator-Rental-20-kw-e1553112807980-250x250.jpg" alt="20KW Generator - CP CPG25">
+                    <h3>20KW Generator</h3>
+                    <p><strong>Model:</strong> CP CPG25<br>
+                       <strong>Rates:</strong> $250/Day, $620/Week<br>
+                       <strong>Fuel:</strong> Diesel (72.5 Gal)<br>
+                       <strong>Weight:</strong> 2,635 lbs</p>
+                </div>
+                <div class="generator-item">
+                    <img src="https://rsequipment.com/wp-content/uploads/2019/03/Multiquip-Generator-Rental-45-kw-e1553112849980-250x250.jpg" alt="50KW Generator - MMD PowerPro 65">
+                    <h3>50KW Generator</h3>
+                    <p><strong>Model:</strong> MMD PowerPro 65<br>
+                       <strong>Rates:</strong> $335/Day, $1,000/Week<br>
+                       <strong>Fuel:</strong> Diesel (106 Gal)<br>
+                       <strong>Weight:</strong> 3,570 lbs</p>
+                </div>
+                <div class="generator-item">
+                    <img src="https://rsequipment.com/wp-content/uploads/2019/03/Multiquip-Generator-Rental-70-kw-e1553112881908-250x250.jpg" alt="80KW Generator - MMD PowerPro 100">
+                    <h3>80KW Generator</h3>
+                    <p><strong>Model:</strong> MMD PowerPro 100<br>
+                       <strong>Rates:</strong> $375/Day, $1,100/Week<br>
+                       <strong>Fuel:</strong> Diesel (106 Gal)<br>
+                       <strong>Weight:</strong> 6,063 lbs</p>
+                </div>
+                 <div class="generator-item">
+                    <img src="https://rsequipment.com/wp-content/uploads/2019/03/Multiquip-Generator-Rental-150-kw-e1553112910970-250x250.jpg" alt="120KW Generator - MMD PowerPro 150">
+                    <h3>120KW Generator</h3>
+                    <p><strong>Model:</strong> MMD PowerPro 150<br>
+                       <strong>Rates:</strong> $550/Day, $1,550/Week<br>
+                       <strong>Fuel:</strong> Diesel (215 Gal)<br>
+                       <strong>Weight:</strong> 7,628 lbs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote" class="quote-request">
+        <div class="container">
+            <h2>Request a Quote</h2>
+            <form id="quote-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="from_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="from_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="from_phone" required>
+                </div>
+                 <div class="form-group">
+                    <label for="company">Company Name (Optional):</label>
+                    <input type="text" id="company" name="company_name">
+                </div>
+                 <div class="form-group">
+                    <label for="generator_type">Generator Type Needed:</label>
+                    <select id="generator_type" name="generator_type">
+                        <option value="">Select Type (Optional)</option>
+                        <option value="20KW - CP CPG25">20KW - CP CPG25</option>
+                        <option value="50KW - MMD PowerPro 65">50KW - MMD PowerPro 65</option>
+                        <option value="80KW - MMD PowerPro 100">80KW - MMD PowerPro 100</option>
+                        <option value="120KW - MMD PowerPro 150">120KW - MMD PowerPro 150</option>
+                        <option value="Unsure">Unsure / Need Recommendation</option>
+                    </select>
+                </div>
+                <div class="form-group form-group-inline">
+                    <div>
+                        <label for="start_datetime">Rental Start Date & Time:</label>
+                        <input type="text" id="start_datetime" name="start_datetime" required placeholder="Select Date and Time">
+                    </div>
+                    <div>
+                        <label for="end_datetime">Rental End Date & Time:</label>
+                        <input type="text" id="end_datetime" name="end_datetime" required placeholder="Select Date and Time">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Message/Requirements:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="cta-button">Submit Request</button>
+                <div id="form-status"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2025 JIDAiPower. All rights reserved.</p>
+            <p>9532 Elvis Lane, Lanham, MD 20706</p>
+            <p>Need help? Call us at <a href="tel:1-800-555-POWER">1-800-555-POWER</a> (Placeholder)</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+</body>
+</html>
