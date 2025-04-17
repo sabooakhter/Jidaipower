@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const formStatus = document.getElementById('form-status');
 
     // Replace with your actual EmailJS Service ID and Template IDs
-    const emailJsServiceID = 'YOUR_SERVICE_ID';
-    const ownerTemplateID = 'YOUR_OWNER_TEMPLATE_ID'; // Template for email to dcmarkaz@gmail.com
-    const userTemplateID = 'YOUR_USER_TEMPLATE_ID';   // Template for confirmation email to user
+    const emailJsServiceID = 'service_3yhbbg8';
+    const ownerTemplateID = 'template_4617fem'; // Template for email to dcmarkaz@gmail.com
+    const userTemplateID = 'template_79vfjy6';   // Template for confirmation email to user
 
     quoteForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
@@ -51,19 +51,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const submitButton = quoteForm.querySelector('button[type="submit"]');
         submitButton.disabled = true; // Disable button during sending
 
-        // Prepare template parameters from form data
-        // Ensure the names match the variables in your EmailJS templates
+        // Generate a simple request ID
+        const requestID = `JIDA-${Date.now()}`;
+
+        // Prepare template parameters from form data using the template variable names
         const templateParams = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            from_phone: document.getElementById('phone').value,
-            company_name: document.getElementById('company').value || 'N/A',
-            generator_type: document.getElementById('generator_type').value || 'Not specified',
-            start_datetime: document.getElementById('start_datetime').value,
-            end_datetime: document.getElementById('end_datetime').value,
-            message: document.getElementById('message').value || 'No message provided.',
-            // Add any other parameters your templates expect
-            to_email: document.getElementById('email').value // Needed for the user confirmation email template
+            requestID: requestID, // Generated request ID
+            name: document.getElementById('name').value, // Corresponds to {{name}}
+            requesterEmail: document.getElementById('email').value, // Corresponds to {{requesterEmail}}
+            phone: document.getElementById('phone').value, // Corresponds to {{phone}}
+            companyName: document.getElementById('company').value || 'N/A', // Corresponds to {{companyName}}
+            genType: document.getElementById('generator_type').value || 'Not specified', // Corresponds to {{genType}}
+            rentalStart: document.getElementById('start_datetime').value, // Corresponds to {{rentalStart}}
+            rentalEnd: document.getElementById('end_datetime').value, // Corresponds to {{rentalEnd}}
+            content: document.getElementById('message').value || 'No message provided.' // Corresponds to {{content}}
+            // Note: The user template also uses {{name}} and {{rentalStart}}, which are included.
+            // The user template also needs the recipient's email, but EmailJS handles this automatically when sending.
         };
 
         // Send email to owner (dcmarkaz@gmail.com)
