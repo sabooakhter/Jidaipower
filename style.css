@@ -51,7 +51,7 @@ header .container {
 }
 
 header .logo {
-    background-image: url("/images/logo.png");
+    background: url(/images/logo.png) no-repeat center center / cover;
     font-size: 1.8em;
     font-weight: bold;
     color: #1a237e;
