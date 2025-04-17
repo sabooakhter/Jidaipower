@@ -51,10 +51,14 @@ header .container {
 }
 
 header .logo {
-    background: url(/images/logo.png) no-repeat center center / cover;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #1a237e;
+    /* Styles for the container div if needed, e.g., margin */
+    /* Removed background, font-size, font-weight, color */
+}
+
+header .logo img {
+    max-height: 60px; /* Adjust as needed */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure it behaves like a block element */
 }
 
 header nav ul {
